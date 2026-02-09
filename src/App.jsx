@@ -40,7 +40,7 @@ const languages = [
 ];
 
 export default function App() {
-  const [activeIndex, setActive] = useState(0);
+  const [activeIndex, setActive] = useState(null);
 
   const showCard = (index) => {
     let newCard;
@@ -65,8 +65,12 @@ export default function App() {
         ))}
       </ul>
       <div className="card">
-        <h2>{languages[activeIndex].title}</h2>
-        <div className="description">{languages[activeIndex].description}</div>
+        <h2>
+          {activeIndex === null ? "Nessun linguaggio selezionato" : languages[activeIndex].title}
+        </h2>
+        <div className="description">
+          {activeIndex === null ? "" : languages[activeIndex].description}
+        </div>
       </div>
     </>
   );
