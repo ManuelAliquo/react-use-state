@@ -27,6 +27,11 @@ button {
   cursor: pointer;
 }
 
+.btn-active {
+  background-color: #ffc107;
+  color: #000;
+}
+
 .card {
   margin: 3rem 4rem;
   font-size: 1.3rem;

@@ -55,6 +55,7 @@ export default function App() {
         {languages.map((language, index) => (
           <li key={language.id}>
             <button
+              className={activeIndex === index ? "btn-active" : ""}
               onClick={() => {
                 showCard(index);
               }}
