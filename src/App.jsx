@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Card from "./components/Card";
 
 const languages = [
   {
@@ -42,6 +43,8 @@ const languages = [
 export default function App() {
   const [activeIndex, setActive] = useState(null);
 
+  let isLanguageSelected = activeIndex !== null;
+
   const showCard = (index) => {
     let newCard;
     newCard = index;
@@ -65,14 +68,10 @@ export default function App() {
           </li>
         ))}
       </ul>
-      <div className="card">
-        <h2>
-          {activeIndex === null ? "Nessun linguaggio selezionato" : languages[activeIndex].title}
-        </h2>
-        <div className="description">
-          {activeIndex === null ? "" : languages[activeIndex].description}
-        </div>
-      </div>
+      <Card
+        title={isLanguageSelected === true ? languages[activeIndex].title : ""}
+        description={isLanguageSelected === true ? languages[activeIndex].description : ""}
+      />
     </>
   );
 }
