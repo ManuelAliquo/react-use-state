@@ -40,16 +40,20 @@ const languages = [
 export default function App() {
   return (
     <>
+      <h1>Learn Web development</h1>
       <ul>
         {languages.map((language) => {
           return (
             <li key={language.id}>
               <button>{language.title}</button>
-              <div className="card"></div>
             </li>
           );
         })}
       </ul>
+      <div className="card">
+        <h2>{languages[0].title}</h2>
+        <div className="description">{languages[0].description}</div>
+      </div>
     </>
   );
 }
