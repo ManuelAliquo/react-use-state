@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Buttons from "./components/Buttons";
 import Card from "./components/Card";
 
 const languages = [
@@ -45,32 +46,19 @@ export default function App() {
 
   let isLanguageSelected = activeIndex !== null;
 
-  const showCard = (index) => {
-    let newCard;
-    newCard = index;
-    setActive(newCard);
-  };
-
   return (
     <>
       <h1>Learn Web development</h1>
       <ul>
-        {languages.map((language, index) => (
-          <li key={language.id}>
-            <button
-              className={activeIndex === index ? "btn-active" : ""}
-              onClick={() => {
-                showCard(index);
-              }}
-            >
-              {language.title}
-            </button>
-          </li>
-        ))}
+        <Buttons array={languages} active={activeIndex} setActive={setActive} />
       </ul>
       <Card
-        title={isLanguageSelected === true ? languages[activeIndex].title : ""}
-        description={isLanguageSelected === true ? languages[activeIndex].description : ""}
+        title={
+          isLanguageSelected === true
+            ? languages[activeIndex].title
+            : "Nessun linuaggio selezionato"
+        }
+        description={isLanguageSelected === true ? languages[activeIndex]?.description : ""}
       />
     </>
   );
