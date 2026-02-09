@@ -40,15 +40,16 @@ const languages = [
 export default function App() {
   return (
     <>
-      {languages.map((language) => {
-        return (
-          <ul key={language.id}>
-            <li>
+      <ul>
+        {languages.map((language) => {
+          return (
+            <li key={language.id}>
               <button>{language.title}</button>
+              <div className="card"></div>
             </li>
-          </ul>
-        );
-      })}
+          );
+        })}
+      </ul>
     </>
   );
 }
