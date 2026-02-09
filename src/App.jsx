@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const languages = [
   {
     id: 1,
@@ -38,21 +40,33 @@ const languages = [
 ];
 
 export default function App() {
+  const [activeIndex, setActive] = useState(0);
+
+  const showCard = (index) => {
+    let newCard;
+    newCard = index;
+    setActive(newCard);
+  };
+
   return (
     <>
       <h1>Learn Web development</h1>
       <ul>
-        {languages.map((language) => {
-          return (
-            <li key={language.id}>
-              <button>{language.title}</button>
-            </li>
-          );
-        })}
+        {languages.map((language, index) => (
+          <li key={language.id}>
+            <button
+              onClick={() => {
+                showCard(index);
+              }}
+            >
+              {language.title}
+            </button>
+          </li>
+        ))}
       </ul>
       <div className="card">
-        <h2>{languages[0].title}</h2>
-        <div className="description">{languages[0].description}</div>
+        <h2>{languages[activeIndex].title}</h2>
+        <div className="description">{languages[activeIndex].description}</div>
       </div>
     </>
   );
